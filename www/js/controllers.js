@@ -35,13 +35,33 @@ angular.module('starter.controllers', [])
     };
 
     ImageProcessing.resize(function(success) {
-      $scope.resizedImageUri = resizedImageUri;
+      $scope.transformedImageUri = resizedImageUri;
 
       console.log('Image resized!! - URI: ' + resizedImageUri);
     }, function(error) {
       console.log('Error trying to resize the image - ' + JSON.stringify(error));    // In case of error
     }, options)
   };
+
+  /*
+  $scope.rotatePicture = function() {
+    var rotatedImageUri = $scope.originalImageUri.replace(/(\.[\w\d_-]+)$/i, '_rotated$1');
+
+    var options = {
+      sourceUri: $scope.originalImageUri,
+      destinationUri: rotatedImageUri,
+      angle: 90
+    };
+
+    ImageProcessing.rotate(function(success) {
+      $scope.transformedImageUri = rotatedImageUri;
+
+      console.log('Image rotated!! - URI: ' + rotatedImageUri);
+    }, function(error) {
+      console.log('Error trying to rotate the image - ' + JSON.stringify(error));    // In case of error
+    }, options)
+  };
+  */
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
